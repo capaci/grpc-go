@@ -31,6 +31,8 @@ message ListCategoryResponse {
 
 service CategoryService {
     rpc CreateCategory(CreateCategoryRequest) returns (CategoryResponse) {}
+    rpc CreateCategoryStream(stream CreateCategoryRequest) returns (ListCategoryResponse) {}
+    rpc CreateCategoryStreamBidirectional(stream CreateCategoryRequest) returns (stream CategoryResponse) {}
     rpc GetCategory(GetCategoryRequest) returns (CategoryResponse) {}
     rpc ListCategory(ListCategoryRequest) returns (ListCategoryResponse) {}
 }

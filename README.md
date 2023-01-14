@@ -1,14 +1,17 @@
+# grpc go
+
+Repo created for learning purposes, following classes from fullcycle course.
 
 
-# Generating protobufs
+## Generating protobufs
 
-> protoc --go_out=. --go-grpc_out=. proto/course_category.proto --experimental_allow_proto3_optional
+`protoc --go_out=. --go-grpc_out=. proto/course_category.proto --experimental_allow_proto3_optional`
 
 
 This will generate the files `.pb.go` within `internal/pb` directory (defined as the package in the .proto file)
 
 
 
-# running evans
+## running evans
 
-> evans -r repl -p 50051
+`evans -r repl -p 50051`
