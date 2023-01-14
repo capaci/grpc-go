@@ -17,6 +17,10 @@ message CreateCategoryRequest {
     string description = 2;
 }
 
+message GetCategoryRequest {
+    string id = 1;
+}
+
 message ListCategoryRequest {
     optional string courseID = 1;
 }
@@ -27,6 +31,6 @@ message ListCategoryResponse {
 
 service CategoryService {
     rpc CreateCategory(CreateCategoryRequest) returns (CategoryResponse) {}
+    rpc GetCategory(GetCategoryRequest) returns (CategoryResponse) {}
     rpc ListCategory(ListCategoryRequest) returns (ListCategoryResponse) {}
- 
 }

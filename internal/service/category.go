@@ -36,10 +36,27 @@ func (c *CategoryService) CreateCategory(ctx context.Context, in *pb.CreateCateg
 	}, nil
 }
 
+func (c *CategoryService) GetCategory(ctx context.Context, in *pb.GetCategoryRequest) (*pb.CategoryResponse, error) {
+	category, err := c.CategoryDB.Find(in.Id)
+	if err != nil {
+		return nil, status.Errorf(codes.Internal, "failed to get category: %v", err)
+	}
+
+	categoryResponse := &pb.Category{
+		Id:          category.ID,
+		Name:        category.Name,
+		Description: category.Description,
+	}
+
+	return &pb.CategoryResponse{
+		Category: categoryResponse,
+	}, nil
+}
+
 func (c *CategoryService) ListCategory(ctx context.Context, in *pb.ListCategoryRequest) (*pb.ListCategoryResponse, error) {
 	categories, err := c.CategoryDB.FindAll()
 	if err != nil {
-		return nil, status.Errorf(codes.Internal, "failed to create category: %v", err)
+		return nil, status.Errorf(codes.Internal, "failed to list categories: %v", err)
 	}
 
 	var categoryResponses []*pb.Category
