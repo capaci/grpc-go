@@ -30,7 +30,7 @@ func main() {
 
 	reflection.Register(grpcServer)
 
-	listener, err := net.Listen("tcp", ":8888")
+	listener, err := net.Listen("tcp", ":50051")
 	if err != nil {
 		panic(err)
 	}

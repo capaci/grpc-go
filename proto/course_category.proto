@@ -17,7 +17,16 @@ message CreateCategoryRequest {
     string description = 2;
 }
 
+message ListCategoryRequest {
+    optional string courseID = 1;
+}
+
+message ListCategoryResponse {
+    repeated Category categories = 1;
+}
+
 service CategoryService {
     rpc CreateCategory(CreateCategoryRequest) returns (CategoryResponse) {}
-    
+    rpc ListCategory(ListCategoryRequest) returns (ListCategoryResponse) {}
+ 
 }

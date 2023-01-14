@@ -13,7 +13,7 @@
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	"forwardPorts": [
-		8888
+		50051
 	],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
@@ -23,5 +23,17 @@
 	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "root"
+	"remoteUser": "root",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"zxh404.vscode-proto3",
+				"GitHub.copilot",
+				"usernamehw.errorlens",
+				"mhutchie.git-graph",
+				"eamodio.gitlens",
+				"codezombiech.gitignore"
+			]
+		}
+	}
 }
